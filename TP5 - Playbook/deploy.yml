@@ -79,3 +79,11 @@
         image: httpd
         ports: 
           - "80:80"
+      tags:
+      - start_container
+
+    - name: Stop docker container
+      command: docker rm -f webapp
+      tags:
+      - stop_container
+
