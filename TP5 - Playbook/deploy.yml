@@ -66,11 +66,6 @@
         name: vagrant
         groups: docker
         append: yes
-    
-   # - name: Install ansible-lint
-   #   pip:
-   #     name: ansible-lint
-   #     state: latest
 
   tasks:
     - name: Create Apache container
