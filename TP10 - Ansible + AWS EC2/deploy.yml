@@ -15,7 +15,6 @@
       yum: name=python-pip state=present update_cache=yes
 
     - name: Install boto stuff 
-      #become_user: vagrant
       pip: 
         name: "{{ item }}"
       with_items:
@@ -26,7 +25,6 @@
   tasks:
     # tasks file for deploy-infra
     - name: Create a security group for server
-      #become_user: vagrant
       ec2_group:
         name: "{{ security_group_name }}"
         description: "{{ security_group_name }}"
@@ -49,7 +47,7 @@
         group: "{{ security_group_name }}"
         key_name: "{{ key_name }}"
         instance_type: "{{ instance_type }}"
-        image: "{{ aim_centos7 }}"
+        image: "{{ aim_id }}"
         wait: yes
         wait_timeout: 600
         volumes:

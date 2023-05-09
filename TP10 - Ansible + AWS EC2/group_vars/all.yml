@@ -1,11 +1,10 @@
 # EC2 Global Information
-instance_type: t2.medium
+instance_type: t2.micro
 security_group_name: "devops-sg"
-id_token: "550e8400-e29b-41d4-a716-446655440079"
-host_group_name: "server"
-#aim_centos7: "ami-0889a44b331db0194"
-aim_centos7: "ami-03c7d01cf4dedc891"
+id_token: "z11g3d42-d688-41d2-a7864"
+host_group_name: "ec2_server"
+aim_id: "ami-03c7d01cf4dedc891"
 key_name: "ec2_key"
 region: "us-east-1"
-host_group : "server"
-subnet : "subnet-02d2dae33fe50fa32"
+host_group : "ec2_server"
+subnet : "subnet-02d2dae33fe50fa32" # Subnet for us-east-1a
