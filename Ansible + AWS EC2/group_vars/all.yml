@@ -1,0 +1,12 @@
+# EC2 Global Information
+instance_type: t2.medium
+security_group_name: "devops-sg"
+id_token: "550e8400-e29b-41d4-a716-446655440079"
+host_group_name: "server"
+#aim_centos7: "ami-0057d8e6fb0692b80"
+#aim_centos7: "ami-0889a44b331db0194"
+aim_centos7: "ami-03c7d01cf4dedc891"
+key_name: "ec2_key"
+region: "us-east-1"
+host_group : "server"
+subnet : "subnet-02d2dae33fe50fa32"
