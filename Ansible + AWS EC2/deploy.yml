@@ -61,9 +61,6 @@
         assign_public_ip: yes
         region: "{{ region }}"
         id: "{{ id_token }}"
-        instance_ids: 
-         - 'i-0c1e2363b15ae88d5'
-         - 'i-0c1e2363b15ae88d6'
         #metadata_options:
         #  http_endpoint: enabled
         #  http_tokens: required
