@@ -2,12 +2,18 @@
 - name: Deploy apache with docker on targeted hosts
   hosts: prod
   become: yes
+  vars_files:
+    - files/secret/credentials.yml
 
   pre_tasks:
-    - name: Install EPEL repo
+    - name: Install pre-requisite packages
       package: 
-        name: epel-release 
+        name: "{{ item }}"
         state: present
+      loop:
+        - epel-release
+        - wget
+        - git
       when: ansible_distribution == "CentOS"
 
     - name: Download pip script
@@ -57,18 +63,12 @@
       notify:
       - Start Docker service
 
-    - name: Start Docker service
-      service:
-        name: docker
-        state: started
-        enabled: yes
-
     - name: Add user vagrant to docker group
       user:
         name: vagrant
         groups: docker
         append: yes
-  
+    
   handlers:
     - name: Start Docker Service
       service:
@@ -77,17 +77,26 @@
         enabled: yes 
 
   tasks:
+    - name: Copy/paste template website file
+      template:
+        src: templates/index.html.j2
+        dest: /home/vagrant/index.html
+      
     - name: Create Apache container
       docker_container:
         name: webapp
         image: httpd
         ports: 
           - "80:80"
+        volumes:
+         - /home/vagrant/index.html:/usr/local/apache2/htdocs/index.html
       tags:
       - start_container
 
- #   - name: Stop docker container
- #     command: docker rm -f webapp
- #     tags:
- #     - stop_container
+    
+
+   # - name: Stop docker container
+   #   command: docker rm -f webapp
+   #   tags:
+   #   - stop_container
 

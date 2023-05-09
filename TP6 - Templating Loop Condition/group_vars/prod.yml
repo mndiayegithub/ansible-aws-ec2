@@ -1,5 +1,3 @@
-all:
-  prod:
-    vars:
-      ansible_user: vagrant
-      ansible_password: vagrant
+---
+ansible_user: vagrant
+ansible_password: vagrant

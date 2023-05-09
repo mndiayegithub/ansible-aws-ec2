@@ -1,0 +1,5 @@
+#Install docker-compose
+- src: https://github.com/iMartzen/ansible-role-centos-docker-compose-setup.git
+
+# Install a role for wordpress
+- src: https://github.com/diranetafen/ansible-role-containerized-wordpress.git

@@ -58,18 +58,21 @@
       package:
         name: docker-ce
         state: latest
-
-    - name: Start Docker service
-      service:
-        name: docker
-        state: started
-        enabled: yes
+      notify:
+      - Start Docker service
 
     - name: Add user vagrant to docker group
       user:
         name: vagrant
         groups: docker
         append: yes
+    
+  handlers:
+    - name: Start Docker Service
+      service:
+        name: docker
+        state: started
+        enabled: yes 
 
   tasks:
     - name: Copy/paste template website file
