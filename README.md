@@ -1,4 +1,4 @@
-## Ansible + Docker + AWS - EC2 
+## Ansible + Docker + AWS EC2 
 
 Deploy a containerized Web application in AWS EC2 using Ansible and Docker.
 
@@ -42,7 +42,4 @@ Do not forget to vault secret.yml with `ansible-vault encrypt secret.yml`.
 - Run the Ansible playbook _deploy.yml_ :
   * `ansible-playbook deploy.yml --ask-vault-pass --tags` (for vaulted files)
   * `ansible-playbook deploy.yml --tags` (With vaulted files) 
-
-
-Author : Mansour NDIAYE
 
