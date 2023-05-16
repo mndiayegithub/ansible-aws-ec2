@@ -3,7 +3,8 @@ instance_type: t2.micro
 security_group_name: "devops-sg"
 id_token: "z11g3d42-d688-41d2-a7864"
 host_group_name: "ec2_server"
-aim_id: "ami-03c7d01cf4dedc891"
+#aim_id: "ami-03c7d01cf4dedc891" # Amazaon Linux 2 AMI
+aim_id: "ami-016eb5d644c333ccb" # RedHat AMI
 key_name: "ec2_key"
 region: "us-east-1"
 host_group : "ec2_server"
