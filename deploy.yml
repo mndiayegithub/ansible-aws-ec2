@@ -1,7 +1,7 @@
 ---
 - name: Deploy AWS EC2
   hosts: localhost
-  become_user: vagrant
+  become_user: {{ system_user }}
   vars:
     ansible_connection: local
   vars_files:
