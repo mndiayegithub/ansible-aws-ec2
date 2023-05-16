@@ -31,15 +31,15 @@ Deploy a containerized Web application in AWS EC2 using Ansible and Docker.
 ```
 git clone https://github.com/mndiayegithub/ansible-aws-ec2.git
 ```
-- Get your _AWS_ACCESS_KEY_ & _AWS_SECRET_ACCESS_KEY_ and update the variables into **secret.yml** :
+- Get your _**AWS_ACCESS_KEY**_ & _**AWS_SECRET_ACCESS_KEY**_ and update the variables into **secret.yml** :
 ``` 
 aws_access_key: '1234'
 aws_secret_access_key: 'abc'
 ```
 Do not forget to vault secret.yml with `ansible-vault encrypt secret.yml`.
 
-- Get your SSH Key pair and put it as _ec2_key.pem_
-- Run the Ansible playbook _deploy.yml_ :
+- Get your SSH Key pair and put it as _**ec2_key.pem**_.
+- Run the Ansible playbook _**deploy.yml**_ :
   * `ansible-playbook deploy.yml --ask-vault-pass --tags` (for vaulted files)
   * `ansible-playbook deploy.yml --tags` (With vaulted files) 
 
