@@ -1,4 +1,0 @@
-prod:
-  hosts:
-    client1:
-      ansible_host: 10.10.20.1
