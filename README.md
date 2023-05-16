@@ -13,6 +13,23 @@ Deploy a containerized Web application in AWS EC2 using Ansible and Docker.
 - Basic knowledge of AWS EC2 and Ansible
 - Create an SSH Key pair
 
+# Variables : 
+```
+# Personal information
+system_user: vagrant
+
+# EC2 Global Information
+instance_type: t2.micro
+security_group_name: "devops-sg"
+id_token: "z14d2d33-d478-41b2-a4864"
+host_group_name: "ec2_server"
+aim_id: "ami-016eb5d644c333ccb" # RedHat AMI
+key_name: "ec2_key"
+region: "us-east-1"
+host_group : "ec2_server"
+subnet : "subnet-02d2dae33fe50fa32" # Subnet for us-east-1a
+```
+
 # Dependencies : 
 
 - Ansible version : **2.9** 
