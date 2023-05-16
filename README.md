@@ -58,5 +58,5 @@ Do not forget to vault secret.yml with `ansible-vault encrypt secret.yml`.
 - Get your SSH Key pair and put it as _**ec2_key.pem**_.
 - Run the Ansible playbook _**deploy.yml**_ :
   * `ansible-playbook deploy.yml --ask-vault-pass --tags` (for vaulted files)
-  * `ansible-playbook deploy.yml --tags` (With vaulted files) 
+  * `ansible-playbook deploy.yml --tags` (If not using vaulted files) 
 
