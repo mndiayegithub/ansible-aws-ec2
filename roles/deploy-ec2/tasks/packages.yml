@@ -1,0 +1,17 @@
+---
+# Tasks to install pre-requisite packages
+- name: Install EPEL repo
+  package: 
+    name=epel-release state=present
+  when: ansible_distribution == "CentOS"
+
+- name: install python-pip
+  yum: name=python-pip state=present update_cache=yes
+
+- name: Install boto stuff 
+  pip: 
+    name: "{{ item }}"
+  with_items:
+  - boto
+  - boto3
+  - botocore
