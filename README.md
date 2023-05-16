@@ -4,7 +4,7 @@ Deploy a containerized Web application in AWS EC2 using Ansible and Docker.
 
 # Description :
 
-- In this repository, I have set up a containerized Web application deployed on in AWS EC2 instance using Ansible and Docker.
+- In this repository, I have set up a containerized Web application deployed in an AWS EC2 instance using Ansible and Docker.
 - This guide describe how to deploy our Webapp in an AWS EC2 instance with Ansible and Docker. The process involves creating an AWS Account (Free if possible), setting up an EC2 instance, installing Docker on the EC2 instance, configuring the EC2 instance and deploy our Web Application only WITH Ansible playbook.
  
 # Prerequisites : 
