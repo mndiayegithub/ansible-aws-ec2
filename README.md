@@ -15,7 +15,7 @@ Deploy a containerized Web application in AWS EC2 using Ansible and Docker.
 
 # Dependencies : 
 
-- Ansible version : **3.9** 
+- Ansible version : **2.9** 
 
 # Workflow of Ansible playbook : 
 
