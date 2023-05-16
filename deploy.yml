@@ -1,21 +1,7 @@
 ---
 - name: Deploy AWS EC2
   hosts: localhost
-  become: true
-  vars:
-    ansible_connection: local
-  vars_files:
-    - group_vars/all.yml
-    - group_vars/secret.yml
-  roles:
-    - deploy-ec2
-  tags:
-    - ec2
-
-- name: Deploy Webapp
-  hosts: "{{ host_group_name }}"
-  #become: true
-  become_user: ec2-user
+  become_user: vagrant
   vars:
     ansible_connection: local
   vars_files:
@@ -23,7 +9,23 @@
     - group_vars/secret.yml
   roles:
     - geerlingguy.pip
-    - geerlingguy.docker
     - deploy-ec2
+  tags:
+    - ec2
+
+- name: Deploy Webapp
+  hosts: "{{ host_group_name }}"
+  become: true
+  remote_user: ec2-user
+  vars:
+    - docker_users:
+      - ec2-user
+  vars_files:
+    - group_vars/all.yml
+    - group_vars/secret.yml
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.repo-epel
+    - deploy-webapp
   tags:
     - webapp
