@@ -1,2 +1,11 @@
 ---
 # tasks file for deploy-webapp
+- name: Install packages
+  include_tasks: packages.yml
+
+- name: Create Apache container
+  docker_container:
+    name: webapp
+    image: httpd
+    ports:
+      - "80:80"
