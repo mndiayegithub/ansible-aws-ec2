@@ -5,6 +5,8 @@
   become_user: vagrant
   vars:
     ansible_connection: local
+  vars_files:
+    - group_vars/secret.yml
   pre_tasks:
     - name: Install EPEL repo
       package: 
@@ -23,12 +25,14 @@
         - botocore
 
   tasks:
-    # tasks file for deploy-infra
+    # tasks file for deploy-ec2
     - name: Create a security group for server
       ec2_group:
         name: "{{ security_group_name }}"
         description: "{{ security_group_name }}"
         region: "{{ region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_access_key: "{{ aws_secret_access_key }}"
         rules:
           - proto: tcp
             from_port: 22
@@ -58,6 +62,8 @@
         vpc_subnet_id: "{{ subnet }}"
         assign_public_ip: yes
         region: "{{ region }}"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_access_key: "{{ aws_secret_access_key }}"
         id: "{{ id_token }}"
         #metadata_options:
         #  http_endpoint: enabled
