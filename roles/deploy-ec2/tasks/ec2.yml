@@ -6,7 +6,7 @@
     description: "{{ security_group_name }}"
     region: "{{ region }}"
     aws_access_key: "{{ aws_access_key }}"
-    aws_secret_access_key: "{{ aws_secret_access_key }}"
+    aws_secret_key: "{{ aws_secret_access_key }}"
     rules:
       - proto: tcp
         from_port: 22
@@ -16,9 +16,9 @@
         from_port: 80
         to_port: 80
         cidr_ip: 0.0.0.0/0
-      rules_egress:
-        - proto: all
-          cidr_ip: 0.0.0.0/0
+    rules_egress:
+      - proto: all
+        cidr_ip: 0.0.0.0/0
 
 - name: Deploy Production Server
   ec2:
@@ -37,11 +37,8 @@
     assign_public_ip: yes
     region: "{{ region }}"
     aws_access_key: "{{ aws_access_key }}"
-    aws_secret_access_key: "{{ aws_secret_access_key }}"
+    aws_secret_key: "{{ aws_secret_access_key }}"
     id: "{{ id_token }}"
-    #metadata_options:
-    #  http_endpoint: enabled
-    #  http_tokens: required
   register: ec2
 
 - name: Get public IP adress of production server
@@ -59,6 +56,8 @@
   ec2_tag:
     resource: "{{ item.id }}"
     region: "{{ region }}"
+    aws_access_key: "{{ aws_access_key }}"
+    aws_secret_key: "{{ aws_secret_access_key }}"
     state: "present"
     tags:
       Name: "ansible training ec2"
