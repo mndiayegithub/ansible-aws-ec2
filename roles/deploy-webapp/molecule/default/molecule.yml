@@ -1,0 +1,13 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: delegated
+platforms:
+  - name: instance
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
+lint: |
+    ansible-lint

@@ -1,0 +1,19 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Container test
+    uri:
+      url: http://localhost:{{ PORT }}
+      status: 200
+    register: response
+
+  - Name: Check response content
+    assert:
+      that: 
+        - response.stdout == "It's works!"
+      success_msg: "The application works!"
+      fail_msg: "The application is unjoinable"

@@ -1,5 +1,7 @@
 galaxy_info:
-  author: your name
+  author: Mansour NDIAYE
+  role_name: deploy-webapp
+  #namespace: mndiaye
   description: your role description
   company: your company (optional)
 
