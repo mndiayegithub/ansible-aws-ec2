@@ -7,7 +7,7 @@
   tasks:
   - name: Container test
     uri:
-      url: http://localhost:{{ PORT }}
+      url: http://localhost:{{ PORT_CONTAINER }}
       status: 200
     register: response
 
